@@ -18,10 +18,15 @@ int main()
 
 	while (!Window::isShouldClose()) {
 		Events::pullEvents();
-		if (Events::jpressed(GLFW_KEY_ESCAPE))
+
+		if (Events::justPressed(GLFW_KEY_ESCAPE))
 			Window::setShouldClose(true);
-		if (Events::jclicked(GLFW_MOUSE_BUTTON_1)) 
+
+		if (Events::justClicked(GLFW_MOUSE_BUTTON_1)) 
 			glClearColor(0.8f, 0.4f, 0.2f, 1);
+		else if (Events::justClicked(GLFW_MOUSE_BUTTON_2))
+			glClearColor(0.6f, 0.62f, 0.65f, 1);
+
 		glClear(GL_COLOR_BUFFER_BIT);
 		Window::swapBuffers();
 	}
